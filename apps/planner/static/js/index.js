@@ -105,8 +105,8 @@ let init = (app) => {
         return ((y + Math.floor(y/4) - Math.floor(y/100) + Math.floor(y/400) + t[m] + date.getDate()) % 7);
     };
 
-    app.get_color = function () {
-        switch(app.vue.new_project_color) {
+    app.get_color = function (project_id) {
+        switch(app.vue.project_list[project_id - 1].color) {
             case "Gray":
                 return "has-text-grey";
             case "Blue":

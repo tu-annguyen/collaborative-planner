@@ -190,7 +190,7 @@
             <div class="card mt-4" v-for="r in task_list" v-show="(new Date(r.task.date).toDateString()===date.toDateString()) && (r.task.invited_users && r.task.invited_users.includes(me) || r.task.created_by===me)">
                <header class="card-header">
                   <div class="card-header-title">
-                     <span v-if="r.task.project" class="mr-2 icon is-small is-left" :class="get_color"><i class="fa fa-circle"></i></span>
+                     <span v-if="r.task.project" class="mr-2 icon is-small is-left" :class="get_color(r.task.project)"><i class="fa fa-circle"></i></span>
                      <span>{{r.task.title}}</span>
                   </div>
                </header>
