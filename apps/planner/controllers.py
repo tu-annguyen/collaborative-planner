@@ -28,7 +28,7 @@ Warning: Fixtures MUST be declared with @action.uses({fixtures}) else your app w
 from py4web import action, request, abort, redirect, URL
 from yatl.helpers import A
 
-from py4web.utils.form import FormStyleBulma, Form
+from py4web.utils.form import FormStyleBulma, Form, DateTimeWidget
 from .common import db, session, T, cache, auth, logger, authenticated, unauthenticated, flash
 from py4web.utils.url_signer import URLSigner
 from .models import get_user
@@ -131,6 +131,7 @@ def edit(task_id=None):
         redirect(URL('index'))
 
     #edit form, has records
+    FormStyleBulma.widgets['date'] = DateTimeWidget()
     form = Form(db.task, record=p, deletable=False, csrf_session=session, formstyle=FormStyleBulma)
 
     
@@ -142,7 +143,13 @@ def edit(task_id=None):
     if form.accepted:
         # The update already happened!
         redirect(URL('index'))
-    return dict(form=form) # if error/empty, just return the form again
+    return dict(
+        form=form,
+        task=db.task[task_id].title,
+        get_users_url = URL('get_users', signer=url_signer),
+        get_tasks_url = URL('get_all_tasks', signer=url_signer),
+        get_projects_url = URL('get_all_projects', signer=url_signer),
+    ) # if error/empty, just return the form again
 
 @action('delete/<task_id:int>')
 @action.uses(db, session, auth.user)
