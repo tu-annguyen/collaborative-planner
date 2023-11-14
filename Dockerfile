@@ -14,7 +14,7 @@ RUN apt update && \
 
 WORKDIR /collaborative-planner
 
-COPY . ./apps
+COPY ./apps ./apps
 
 RUN py4web set_password --password "mypassword"
 
