@@ -89,7 +89,7 @@
                <option v-for="color in colors" @click="new_project_color=color">{{color}}</option>
             </select>
          </div>
-         <div class="icon is-small is-left" :class="get_color"><i class="fa fa-circle"></i></div>
+         <div class="icon is-small is-left" :class="get_color(r.task.project)"><i class="fa fa-circle"></i></div>
       </div>
 
       <!-- Submit button -->
@@ -158,7 +158,7 @@
 
             <div class="card mt-4" v-for="r in task_list" v-show="(new Date(r.task.date).toDateString()===current_date.toDateString()) && (r.task.invited_users && r.task.invited_users.includes(me) || r.task.created_by===me)">
                <header class="card-header">
-                  <div v-if="r.task.project" class="icon is-small is-left" :class="get_color"><i class="fa fa-circle"></i></div>
+                  <div v-if="r.task.project" class="icon is-small is-left" :class="get_color(r.task.project)"><i class="fa fa-circle"></i></div>
                   <p class="card-header-title">
                      {{r.task.title}}
                   </p>
