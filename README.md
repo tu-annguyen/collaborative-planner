@@ -15,3 +15,11 @@ Make sure you are in the root directory of this repository.
 
 # Usage
 See the usage of the app in showcase.pdf.
+
+# Authors
+* [Tu-An Nguyen](https://github.com/tu-annguyen)
+    * Also contributed under [tunhnguy](https://github.com/tunhnguy)
+* [Diwa Ashwini Vittala](https://github.com/diwaav)
+* [Fiona Hsu](https://github.com/fionahsu51)
+* [Malachi Maldonado](https://github.com/mm-maldon)
+* [Nancy Nguyen](https://github.com/nannancy101)
